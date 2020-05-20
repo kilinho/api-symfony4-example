@@ -1,0 +1,18 @@
+app.swagger_ui:
+    path: /api/doc
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+all_result_game:
+    path: /api/v1/result/game/{gameId}
+    controller: App\Controller\ResultGameController::getAction
+    requirements:
+        gameId: '\d+'
+    methods: GET
+
+refresh_result_game:
+    path: /api/v1/result/game/refresh/{gameId}
+    controller: App\Controller\ResultGameRefreshController::refreshAction
+    requirements:
+        gameId: '\d+'
+    methods: POST
